@@ -12,7 +12,6 @@ import xyz.glidiit.pl.repositories.TeamRepository;
 import java.util.List;
 import java.util.Optional;
 
-
 @Service
 public class PlayerService {
 
@@ -40,8 +39,8 @@ public class PlayerService {
         Assert.notNull(player, "Cannot save an empty player");
         Assert.isNull(player.getId(),"You are trying to save a player with an ID");
         Assert.hasText(player.getName(),"The player should have a name");
-        Assert.isNull(player.getTeam(), "The team doesnt exist");
-        Assert.isNull(player.getTeam().getId(), "Team ID is null");
+        Assert.notNull(player.getTeam(), "The team doesnt exist");
+        Assert.notNull(player.getTeam().getId(), "Team ID is null");
         player.setTeam(teamRepository.findById(player.getTeam().getId())
                 .orElseThrow(() -> new IllegalArgumentException("Team doesnt exist")));
         return playerRepository.save(player);

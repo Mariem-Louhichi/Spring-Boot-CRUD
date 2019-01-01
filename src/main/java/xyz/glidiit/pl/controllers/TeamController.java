@@ -13,29 +13,31 @@ import java.util.Optional;
 @RestController
 @RequestMapping("/team")
 public class TeamController {
+
     @Autowired
     private TeamService teamService;
 
-    @RequestMapping(value = "/{id}")
+    @GetMapping(value = "/{id}")
     public Optional<Team> findOne(@PathVariable(name = "id") Integer id){
         return teamService.findOne(id);
     }
-    @RequestMapping(value = "/list")
+
+    @GetMapping(value = "")
     public Page<Team> list(Pageable pageable) {
         return teamService.findAll(pageable);
     }
 
-    @RequestMapping(value = "delete/{id}")
+    @DeleteMapping(value = "/{id}")
     public void delete(@PathVariable(name = "id") Integer id) {
         teamService.delete(id);
     }
 
-    @RequestMapping(value = "/add", method = RequestMethod.PUT)
+    @PutMapping(value = "")
     public Team setupAddForm(@RequestBody Team team) {
         return teamService.insert(team);
     }
 
-    @RequestMapping(value = "/update/{id}", method = RequestMethod.POST)
+    @PutMapping(value = "/{id}")
     public Team setupUpdateForm(@PathVariable(name = "id") Integer id, @RequestBody Team team) {
         return teamService.update(id, team);
     }
