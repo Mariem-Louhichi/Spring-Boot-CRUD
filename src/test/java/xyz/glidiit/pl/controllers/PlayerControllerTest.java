@@ -24,7 +24,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @RunWith(SpringRunner.class)
-@WebMvcTest(value = PlayerController.class, secure = false)
+@WebMvcTest(value = PlayerController.class)
 public class PlayerControllerTest {
 
     @Autowired
