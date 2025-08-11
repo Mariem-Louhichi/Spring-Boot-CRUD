@@ -9,6 +9,13 @@
   <version>0.0.1-SNAPSHOT</version>
   <packaging>jar</packaging>
 
+  <scm>
+    <connection>scm:git:git@github.com:Mariem-Louhichi/Spring-Boot-CRUD.git</connection>
+    <developerConnection>scm:git:git@github.com:Mariem-Louhichi/Spring-Boot-CRUD.git</developerConnection>
+    <url>https://github.com/Mariem-Louhichi/Spring-Boot-CRUD</url>
+</scm>
+
+
   <name>pl</name>
   <description>Web services</description>
 
