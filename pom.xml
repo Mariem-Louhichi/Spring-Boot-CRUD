@@ -11,7 +11,6 @@
     <connection>scm:git:https://github.com/Mariem-Louhichi/Spring-Boot-CRUD.git</connection>
     <developerConnection>scm:git:https://github.com/Mariem-Louhichi/Spring-Boot-CRUD.git</developerConnection>
     <url>https://github.com/Mariem-Louhichi/Spring-Boot-CRUD</url>
-  <tag>pl-0.0.1</tag>
   </scm>
 
 
