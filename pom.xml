@@ -204,7 +204,6 @@
           <useReleaseProfile>false</useReleaseProfile>
           <preparationGoals>clean verify</preparationGoals>
           <!-- Remove releaseVersion to let plugin compute non-SNAPSHOT automatically -->
-          <developmentVersion>auto</developmentVersion>
         </configuration>
 </plugin>
 
