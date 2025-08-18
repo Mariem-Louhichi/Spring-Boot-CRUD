@@ -4,7 +4,7 @@
 
   <groupId>xyz.glid-iit</groupId>
   <artifactId>pl</artifactId>
-  <version>0.0.8-SNAPSHOT</version>
+  <version>0.0.8</version>
   <packaging>jar</packaging>
 
   
@@ -13,6 +13,7 @@
     <developerConnection>scm:git:https://github.com/Mariem-Louhichi/Spring-Boot-CRUD.git</developerConnection>
     <url>https://github.com/Mariem-Louhichi/Spring-Boot-CRUD</url>
     
+    <tag>pl-0.0.8</tag>
   </scm>
 
 
