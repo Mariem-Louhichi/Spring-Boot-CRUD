@@ -8,24 +8,33 @@ pipeline {
 
     stages {
 
-        stage('Checkout') {
-            steps {
-                checkout scm
+       stage('Checkout') {
+    steps {
+        checkout([$class: 'GitSCM',
+            branches: [[name: "*/${env.BRANCH_NAME}"]],
+            doGenerateSubmoduleConfigurations: false,
+            extensions: [[$class: 'LocalBranch', localBranch: "${env.BRANCH_NAME}"]],
+            userRemoteConfigs: [[
+                url: 'https://github.com/Mariem-Louhichi/Spring-Boot-CRUD.git',
+                credentialsId: 'JenkinsGithubCredientials'
+            ]]
+        ])
 
-                script {
-                    // Get the last commit message
-                    def commitMessage = sh(script: "git log -1 --pretty=%B", returnStdout: true).trim()
-                    echo "Last commit message: ${commitMessage}"
+        script {
+            // Get the last commit message
+            def commitMessage = sh(script: "git log -1 --pretty=%B", returnStdout: true).trim()
+            echo "Last commit message: ${commitMessage}"
 
-                    // Skip the build if it contains [maven-release-plugin]
-                    if (commitMessage.contains("[maven-release-plugin]")) {
-                        echo "⏭️ Skipping build because last commit was made by Maven Release Plugin"
-                        currentBuild.result = 'NOT_BUILT'
-                        return
-                    }
-                }
+            // Skip the build if it contains [maven-release-plugin]
+            if (commitMessage.contains("[maven-release-plugin]")) {
+                echo "⏭️ Skipping build because last commit was made by Maven Release Plugin"
+                currentBuild.result = 'NOT_BUILT'
+                return
             }
         }
+    }
+}
+
 
         stage('Clean old tags') {
             when {
